@@ -424,7 +424,7 @@ ul { list-style: none; }
     linear-gradient(150deg, rgba(2,26,24,.85) 0%, rgba(10,46,42,.78) 40%, rgba(6,36,32,.88) 100%);
 }
 .bium-particles { position: absolute; inset: 0; pointer-events: none; }
-.bium-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
+.bium-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; overflow: hidden; word-break: keep-all; }
 .bium-lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .83rem; font-weight: 700; letter-spacing: .22em; color: var(--bium-lt); text-transform: uppercase; margin-bottom: 24px; }
 .bium-dot { width: 8px; height: 8px; background: var(--bium-lt); border-radius: 50%; box-shadow: 0 0 8px var(--bium-lt); animation: dotPulse 1.4s ease-in-out infinite; }
 @keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
@@ -566,6 +566,24 @@ ul { list-style: none; }
   .hamburger  { display: flex; }
   .services-grid { grid-template-columns: 1fr; }
   .bium-inner { grid-template-columns: 1fr; gap: 48px; }
+  .bium-launch { padding: 80px 16px; }
+  .bium-title { font-size: clamp(1.8rem, 5vw, 2.6rem); }
+  .bium-desc { font-size: 1.05rem; margin-bottom: 28px; }
+  .bium-card-vis { padding: 32px 20px 28px; border-radius: 18px; }
+  .bium-icon-big { width: 72px; height: 72px; font-size: 1.8rem; }
+  .bium-name { font-size: 1.7rem; }
+  .bium-tagline { font-size: 1.02rem; margin-bottom: 24px; }
+  .bium-cd { gap: 6px; flex-wrap: wrap; justify-content: center; }
+  .cd-item { min-width: 60px; padding: 10px 14px; }
+  .cd-num { font-size: 1.7rem; }
+  .cd-colon { font-size: 1.3rem; padding-bottom: 16px; }
+  .bium-signup { padding: 20px 16px; }
+  .signup-form { flex-direction: column; border-radius: 14px; }
+  .signup-form input { border-radius: 0; padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(13,148,136,.2); }
+  .signup-form button { border-radius: 0; padding: 14px 18px; }
+  .bium-feat-ic { width: 44px; height: 44px; min-width: 44px; font-size: .95rem; }
+  .bium-feat div strong { font-size: 1rem; }
+  .bium-feat div span { font-size: .9rem; }
   .about-grid { grid-template-columns: 1fr; }
   .about-visual { height: 370px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -581,9 +599,31 @@ ul { list-style: none; }
   .cta-btns   { flex-direction: column; align-items: center; }
   .cta-btn    { width: 100%; max-width: 340px; }
   .about-badge-float { top: -10px; right: -10px; font-size: .83rem; padding: 10px 14px; }
-  .bium-cd    { gap: 4px; }
-  .cd-item    { min-width: 56px; padding: 10px 12px; }
-  .cd-num     { font-size: 1.61rem; }
+  .bium-launch { padding: 60px 12px; }
+  .bium-inner { gap: 36px; }
+  .bium-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .bium-desc { font-size: .97rem; line-height: 1.7; }
+  .bium-card-vis { padding: 28px 14px 24px; }
+  .bium-icon-big { width: 64px; height: 64px; font-size: 1.6rem; border-radius: 18px; }
+  .bium-name { font-size: 1.5rem; }
+  .bium-name-ko { font-size: .85rem; }
+  .bium-tagline { font-size: .95rem; margin-bottom: 20px; }
+  .bium-cd { gap: 4px; }
+  .cd-item { min-width: 52px; padding: 8px 10px; }
+  .cd-num { font-size: 1.4rem; }
+  .cd-colon { font-size: 1.1rem; padding-bottom: 14px; }
+  .cd-lbl { font-size: .68rem; }
+  .bium-launch-txt { font-size: .78rem; letter-spacing: .1em; }
+  .bium-signup { padding: 18px 12px; }
+  .bium-signup > p { font-size: .92rem; }
+  .signup-form input { padding: 12px 16px; font-size: .95rem; }
+  .signup-form button { padding: 12px 16px; font-size: 1rem; }
+  .bium-lbl { font-size: .72rem; letter-spacing: .15em; }
+  .bium-feats { gap: 16px; }
+  .bium-feat { gap: 12px; }
+  .bium-feat-ic { width: 40px; height: 40px; min-width: 40px; font-size: .9rem; border-radius: 10px; }
+  .bium-feat div strong { font-size: .95rem; }
+  .bium-feat div span { font-size: .85rem; }
 }
   </style>
 </head>
