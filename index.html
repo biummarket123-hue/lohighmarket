@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>로하이마켓 — 대한민국 No.1 원단 소싱 파트너</title>
+  <meta name="description" content="10년의 현장 경험과 16,000명의 커뮤니티가 증명하는 대한민국 최대 재고 원단 네트워크, 로하이마켓" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" />
+  <style>
+/* ================================================
+   RESET & BASE
+   ================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:      #0a1628;
+  --slate:     #2d3e50;
+  --accent:    #1a4b8c;
+  --accent-lt: #2563b8;
+  --gold:      #c9a84c;
+  --gold-lt:   #e0c06e;
+  --white:     #f8f9fa;
+  --off-white: #eef1f5;
+  --gray:      #8898a8;
+  --bium:      #0d9488;
+  --bium-dark: #0a7a6f;
+  --bium-lt:   #14b8a9;
+  --radius:    14px;
+  --shadow:    0 8px 40px rgba(10,22,40,.14);
+  --shadow-lg: 0 20px 60px rgba(10,22,40,.22);
+  --tr:        .35s cubic-bezier(.4,0,.2,1);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', 'Inter', sans-serif;
+  background: var(--white);
+  color: var(--navy);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.section-pad { padding: 100px 0; }
+
+/* ── Section Header ── */
+.section-header { text-align: center; margin-bottom: 64px; }
+.sec-label {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .22em; text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(201,168,76,.1);
+  border: 1px solid rgba(201,168,76,.3);
+  padding: 5px 14px; border-radius: 50px;
+  margin-bottom: 16px;
+}
+.sec-label.light { color: var(--gold-lt); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.2); }
+.sec-title {
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 800; line-height: 1.3;
+  color: var(--navy); margin-bottom: 18px;
+}
+.sec-title.white { color: #fff; }
+.sec-desc { font-size: 1rem; color: #5a6e82; max-width: 560px; margin: 0 auto; }
+.sec-desc.white { color: rgba(255,255,255,.72); }
+
+/* ================================================
+   NAVBAR
+   ================================================ */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  transition: background var(--tr), box-shadow var(--tr);
+}
+.navbar.scrolled {
+  background: rgba(10,22,40,.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 2px 30px rgba(0,0,0,.3);
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+}
+.logo { display: flex; align-items: baseline; gap: 2px; }
+.logo-hi { font-family: 'Inter',sans-serif; font-size: 1.4rem; font-weight: 800; color: #fff; letter-spacing: .04em; }
+.logo-mk { font-family: 'Inter',sans-serif; font-size: .85rem; font-weight: 500; color: var(--gold); letter-spacing: .12em; margin-left: 3px; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a { font-size: .9rem; font-weight: 500; color: rgba(255,255,255,.8); transition: color var(--tr); }
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: var(--gold) !important; color: var(--navy) !important;
+  font-weight: 700 !important; padding: 9px 22px;
+  border-radius: 50px; transition: background var(--tr), transform var(--tr) !important;
+}
+.nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-2px); }
+.hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+.hamburger span { display: block; width: 26px; height: 2px; background: #fff; border-radius: 2px; transition: var(--tr); }
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.mobile-menu { display: none; flex-direction: column; background: rgba(10,22,40,.98); backdrop-filter: blur(12px); border-top: 1px solid rgba(255,255,255,.08); padding: 16px 24px 24px; gap: 4px; }
+.mobile-menu.open { display: flex; }
+.mobile-link { font-size: 1rem; font-weight: 500; color: rgba(255,255,255,.85); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.06); transition: color var(--tr); }
+.mobile-link:last-child { border-bottom: none; }
+.mobile-link.hi { color: var(--gold); font-weight: 700; }
+
+/* ================================================
+   HERO
+   ================================================ */
+.hero {
+  position: relative; min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden; padding: 120px 24px 80px;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1558171813-4c088753af8f?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 60%, rgba(10,22,40,.45) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 30%, rgba(13,148,136,.18) 0%, transparent 55%),
+    linear-gradient(160deg, rgba(10,22,40,.82) 0%, rgba(18,37,63,.72) 50%, rgba(10,30,53,.80) 100%);
+}
+.fabric-pattern {
+  position: absolute; inset: 0;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,.025) 39px, rgba(255,255,255,.025) 40px),
+    repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,.025) 39px, rgba(255,255,255,.025) 40px);
+}
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 820px; }
+
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,168,76,.15); border: 1px solid rgba(201,168,76,.4);
+  color: var(--gold-lt); font-size: .8rem; font-weight: 600;
+  letter-spacing: .1em; padding: 7px 18px; border-radius: 50px;
+  margin-bottom: 28px; text-transform: uppercase;
+  opacity: 0; animation: fadeDown .8s .2s forwards;
+}
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.2rem); font-weight: 900;
+  color: #fff; line-height: 1.18; margin-bottom: 24px; letter-spacing: -.02em;
+  opacity: 0; animation: fadeUp .9s .4s forwards;
+}
+.hero-title em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.hero-sub {
+  font-size: clamp(.95rem, 2vw, 1.15rem); color: rgba(255,255,255,.72);
+  margin-bottom: 40px; line-height: 1.8;
+  opacity: 0; animation: fadeUp .9s .6s forwards;
+}
+.hero-btns {
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+  margin-bottom: 52px; opacity: 0; animation: fadeUp .9s .8s forwards;
+}
+.btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: .95rem; font-weight: 700; padding: 14px 32px;
+  border-radius: 50px; transition: all var(--tr); cursor: pointer; border: none;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--navy); box-shadow: 0 4px 20px rgba(201,168,76,.4);
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201,168,76,.5); }
+.btn-outline { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35); }
+.btn-outline:hover { border-color: rgba(255,255,255,.8); background: rgba(255,255,255,.08); transform: translateY(-3px); }
+
+.hero-proof {
+  display: inline-flex; align-items: center;
+  background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+  border-radius: 16px; padding: 20px 36px; backdrop-filter: blur(8px);
+  opacity: 0; animation: fadeUp .9s 1s forwards;
+}
+.proof-item { display: flex; flex-direction: column; align-items: center; padding: 0 28px; }
+.proof-item strong { font-family: 'Inter',sans-serif; font-size: 1.9rem; font-weight: 800; color: var(--gold-lt); line-height: 1; }
+.proof-item span { font-family: 'Inter',sans-serif; font-size: 1.2rem; color: var(--gold-lt); margin-left: 1px; }
+.proof-item small { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: 5px; letter-spacing: .06em; font-weight: 500; }
+.proof-div { width: 1px; height: 44px; background: rgba(255,255,255,.15); }
+
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: rgba(255,255,255,.4); font-size: .72rem; letter-spacing: .15em; text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 48px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+@keyframes scrollPulse { 0%,100%{opacity:.4;transform:scaleY(1)} 50%{opacity:1;transform:scaleY(1.1)} }
+@keyframes fadeDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp   { from{opacity:0;transform:translateY(28px)}  to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn   { from{opacity:0} to{opacity:1} }
+@keyframes float    { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+
+/* ================================================
+   ABOUT
+   ================================================ */
+.about {
+  background: url('https://images.unsplash.com/photo-1528459105426-b9548367069b?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+  position: relative;
+}
+.about::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(245,242,238,.88);
+  backdrop-filter: blur(1px);
+  z-index: 0;
+}
+.about .container { position: relative; z-index: 1; }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-visual { position: relative; height: 480px; }
+.fabric-card { position: absolute; border-radius: 20px; box-shadow: var(--shadow-lg); transition: transform var(--tr); overflow: hidden; }
+.fc1 {
+  width: 58%; height: 62%; top: 0; left: 0; z-index: 1;
+  background: url('https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80') center center / cover no-repeat;
+}
+.fc1::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,.72) 0%, rgba(10,22,40,.15) 55%, transparent 100%);
+}
+.fc1::after {
+  content: 'LINEN'; position: absolute; bottom: 18px; left: 20px;
+  font-family: 'Inter',sans-serif; font-size: .78rem; font-weight: 800;
+  letter-spacing: .28em; color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+.fc2 {
+  width: 52%; height: 55%; bottom: 0; right: 0; z-index: 2;
+  background: url('https://images.unsplash.com/photo-1606722590583-6951b5ea92ad?auto=format&fit=crop&w=800&q=80') center center / cover no-repeat;
+}
+.fc2::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(10,22,40,.68) 0%, rgba(10,22,40,.1) 55%, transparent 100%);
+}
+.fc2::after {
+  content: 'COTTON'; position: absolute; bottom: 18px; right: 20px;
+  font-family: 'Inter',sans-serif; font-size: .78rem; font-weight: 800;
+  letter-spacing: .28em; color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+.fc3 {
+  width: 40%; height: 40%; top: 50%; left: 50%; transform: translate(-50%,-50%); z-index: 3;
+  background: url('https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=800&q=80') center center / cover no-repeat;
+  display: flex; align-items: flex-end; justify-content: center;
+  padding-bottom: 14px;
+}
+.fc3::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(6,12,26,.82) 0%, rgba(6,12,26,.25) 60%, transparent 100%);
+  border-radius: inherit;
+}
+.fc3::after {
+  content: 'DEADSTOCK'; position: relative; z-index: 1;
+  font-family: 'Inter',sans-serif; font-size: .68rem; font-weight: 800;
+  letter-spacing: .22em; color: var(--gold-lt);
+  text-shadow: 0 2px 8px rgba(0,0,0,.6);
+}
+.about-visual:hover .fc1 { transform: translate(-6px,-6px); }
+.about-visual:hover .fc2 { transform: translate(6px,6px); }
+.about-badge-float {
+  position: absolute; top: -18px; right: -18px; z-index: 10;
+  background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+  color: var(--navy); font-weight: 700; font-size: .8rem;
+  padding: 14px 18px; border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(201,168,76,.45);
+  display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;
+}
+.about-badge-float i { font-size: 1.3rem; margin-bottom: 4px; }
+.about-text .sec-label { display: inline-block; }
+.about-text .sec-title { text-align: left; margin-bottom: 20px; }
+.about-text .sec-desc { text-align: left; max-width: none; margin: 0 0 14px 0; }
+.about-features { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.about-features li { display: flex; align-items: center; gap: 10px; font-size: .95rem; color: var(--slate); font-weight: 500; }
+.about-features li i { color: var(--bium); font-size: 1.05rem; }
+
+/* AOS-like manual animation classes */
+.anim { opacity: 0; transform: translateY(40px); transition: opacity .9s ease, transform .9s ease; }
+.anim.from-left  { transform: translateX(-50px); }
+.anim.from-right { transform: translateX(50px); }
+.anim.visible { opacity: 1 !important; transform: none !important; }
+
+/* ================================================
+   STATS
+   ================================================ */
+.stats {
+  position: relative;
+  background: url('https://images.unsplash.com/photo-1617791160536-598cf32026fb?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+  overflow: hidden;
+}
+.stats::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(8,16,32,.82);
+  z-index: 0;
+}
+.stats .container { position: relative; z-index: 1; }
+.stats-accent { display: none; }
+.stats-accent { position: absolute; top: -200px; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(26,75,140,.25) 0%, transparent 65%); pointer-events: none; }
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.stat-card {
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius); padding: 36px 28px; text-align: center;
+  transition: all var(--tr); position: relative; overflow: hidden;
+}
+.stat-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,.03), transparent); pointer-events: none; }
+.stat-card:hover { transform: translateY(-8px); background: rgba(255,255,255,.09); border-color: rgba(201,168,76,.35); box-shadow: 0 16px 50px rgba(0,0,0,.3); }
+.stat-card.featured { border-color: rgba(201,168,76,.4); background: rgba(201,168,76,.07); }
+.stat-icon { width: 60px; height: 60px; border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.5rem; }
+.si-band { background: rgba(26,75,140,.3); color: #60a5fa; }
+.si-insta { background: rgba(201,168,76,.2); color: var(--gold-lt); }
+.si-stock { background: rgba(13,148,136,.2); color: var(--bium-lt); }
+.si-exp { background: rgba(201,168,76,.15); color: var(--gold); }
+.stat-num { display: flex; align-items: baseline; justify-content: center; gap: 2px; margin-bottom: 10px; }
+.stat-num .num { font-family: 'Inter',sans-serif; font-size: 2.4rem; font-weight: 800; color: #fff; line-height: 1; }
+.stat-plus { font-size: 1.2rem; color: var(--gold-lt); font-weight: 700; }
+.stat-hi { font-size: 2rem !important; color: var(--gold-lt) !important; font-weight: 800; font-family: 'Inter',sans-serif; }
+.stat-lbl { font-size: .88rem; font-weight: 700; color: rgba(255,255,255,.9); margin-bottom: 10px; }
+.stat-dsc { font-size: .8rem; color: rgba(255,255,255,.5); line-height: 1.6; margin-bottom: 20px; }
+.stat-lnk { font-size: .82rem; font-weight: 600; color: var(--gold); display: inline-flex; align-items: center; gap: 6px; transition: gap var(--tr), color var(--tr); }
+.stat-lnk:hover { color: var(--gold-lt); gap: 10px; }
+
+/* ================================================
+   SERVICES
+   ================================================ */
+.services {
+  background: url('https://images.unsplash.com/photo-1553531384-cc64259a7a33?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+  position: relative;
+}
+.services::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(238,241,245,.90);
+  z-index: 0;
+}
+.services .container { position: relative; z-index: 1; }
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.svc-card { background: #fff; border-radius: 20px; overflow: hidden; box-shadow: var(--shadow); transition: transform var(--tr), box-shadow var(--tr); }
+.svc-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+.svc-img {
+  height: 300px; position: relative;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 20px 24px; overflow: hidden;
+}
+.svc-lohigh {
+  background: linear-gradient(135deg, #0f2040 0%, #1a3a6e 60%, #0a1628 100%);
+}
+.svc-lohigh::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 80% 110%, rgba(201,168,76,.25) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 10% 0%, rgba(26,75,140,.3) 0%, transparent 50%);
+}
+.svc-bium {
+  background: linear-gradient(135deg, #021a18 0%, #0a3830 60%, #0d4a40 100%);
+}
+.svc-bium::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 80% at 80% 110%, rgba(13,148,136,.3) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 60% at 10% 0%, rgba(5,90,80,.4) 0%, transparent 50%);
+}
+/* 모바일 목업 이미지 공통 */
+.mockup-img {
+  position: absolute;
+  bottom: -10px;
+  height: 110%;
+  width: auto;
+  object-fit: contain;
+  drop-shadow: 0 20px 60px rgba(0,0,0,.5);
+  transition: transform var(--tr);
+  filter: drop-shadow(0 16px 40px rgba(0,0,0,.55));
+}
+.mockup-img.left  { left: 10%; }
+.mockup-img.right { right: 10%; }
+.svc-card:hover .mockup-img { transform: translateY(-8px) scale(1.03); }
+/* 도메인 레이블 */
+.svc-domain {
+  position: relative; z-index: 2;
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.55);
+  align-self: flex-start;
+}
+.svc-tag { position: relative; z-index: 1; font-size: .72rem; font-weight: 700; letter-spacing: .14em; padding: 5px 14px; border-radius: 50px; text-transform: uppercase; background: rgba(255,255,255,.15); color: rgba(255,255,255,.9); border: 1px solid rgba(255,255,255,.25); backdrop-filter: blur(6px); }
+.svc-tag.new { background: rgba(201,168,76,.25); color: var(--gold-lt); border-color: rgba(201,168,76,.5); }
+.svc-body { padding: 32px 32px 36px; position: relative; }
+.svc-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 1.3rem; margin-bottom: 20px; margin-top: -52px; box-shadow: 0 6px 20px rgba(26,75,140,.4); background: linear-gradient(135deg, var(--accent), var(--accent-lt)); }
+.svc-icon.bm { background: linear-gradient(135deg, var(--bium-dark), var(--bium)); box-shadow: 0 6px 20px rgba(13,148,136,.4); }
+.svc-body h3 { font-size: 1.35rem; font-weight: 800; color: var(--navy); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.new-badge { font-size: .68rem; font-weight: 800; letter-spacing: .12em; background: linear-gradient(135deg, var(--bium), var(--bium-lt)); color: #fff; padding: 3px 10px; border-radius: 50px; }
+.svc-body p { font-size: .92rem; color: #5a6e82; line-height: 1.75; margin-bottom: 20px; }
+.svc-feats { margin-bottom: 28px; display: flex; flex-direction: column; gap: 8px; }
+.svc-feats li { display: flex; align-items: center; gap: 8px; font-size: .88rem; color: var(--slate); font-weight: 500; }
+.svc-feats li i { color: var(--bium); font-size: .9rem; }
+.svc-btn { display: inline-flex; align-items: center; gap: 8px; font-size: .88rem; font-weight: 700; color: var(--accent); border-bottom: 2px solid rgba(26,75,140,.2); padding-bottom: 2px; transition: all var(--tr); }
+.svc-btn:hover { gap: 12px; color: var(--accent-lt); border-color: var(--accent-lt); }
+.svc-btn.bm { color: var(--bium); border-color: rgba(13,148,136,.25); }
+.svc-btn.bm:hover { color: var(--bium-lt); border-color: var(--bium-lt); }
+
+/* ================================================
+   BIUM LAUNCH
+   ================================================ */
+.bium-launch { position: relative; padding: 120px 24px; overflow: hidden; }
+.bium-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1504198453319-5ce911bafcde?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+}
+.bium-overlay {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 60% at 10% 50%, rgba(2,26,24,.75) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 70% at 90% 30%, rgba(201,168,76,.08) 0%, transparent 55%),
+    linear-gradient(150deg, rgba(2,26,24,.85) 0%, rgba(10,46,42,.78) 40%, rgba(6,36,32,.88) 100%);
+}
+.bium-particles { position: absolute; inset: 0; pointer-events: none; }
+.bium-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; }
+.bium-lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .72rem; font-weight: 700; letter-spacing: .22em; color: var(--bium-lt); text-transform: uppercase; margin-bottom: 24px; }
+.bium-dot { width: 8px; height: 8px; background: var(--bium-lt); border-radius: 50%; box-shadow: 0 0 8px var(--bium-lt); animation: dotPulse 1.4s ease-in-out infinite; }
+@keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
+.bium-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff; line-height: 1.2; margin-bottom: 20px; letter-spacing: -.02em; }
+.bium-accent { background: linear-gradient(135deg, var(--bium-lt), #5eead4); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.bium-desc { font-size: 1rem; color: rgba(255,255,255,.65); line-height: 1.8; margin-bottom: 40px; }
+.bium-feats { display: flex; flex-direction: column; gap: 20px; }
+.bium-feat { display: flex; align-items: flex-start; gap: 16px; }
+.bium-feat-ic { width: 44px; height: 44px; min-width: 44px; background: rgba(13,148,136,.2); border: 1px solid rgba(13,148,136,.35); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--bium-lt); font-size: 1.05rem; }
+.bium-feat div strong { display: block; font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+.bium-feat div span { font-size: .84rem; color: rgba(255,255,255,.55); }
+.bium-card-vis { background: rgba(255,255,255,.05); border: 1px solid rgba(13,148,136,.3); border-radius: 24px; padding: 44px 36px 36px; text-align: center; backdrop-filter: blur(8px); margin-bottom: 20px; }
+.bium-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 20px; }
+.bium-icon-big { width: 80px; height: 80px; background: linear-gradient(135deg, var(--bium-dark), var(--bium-lt)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: #fff; box-shadow: 0 10px 40px rgba(13,148,136,.5); }
+.bium-brand { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.bium-name { font-family: 'Inter',sans-serif; font-size: 1.8rem; font-weight: 900; color: #fff; letter-spacing: .1em; }
+.bium-name-ko { font-size: .85rem; font-weight: 500; color: var(--bium-lt); letter-spacing: .12em; }
+.bium-tagline { font-size: 1rem; color: rgba(255,255,255,.7); font-weight: 500; margin-bottom: 32px; font-style: italic; }
+.bium-cd { display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 18px; }
+.cd-item { display: flex; flex-direction: column; align-items: center; gap: 4px; background: rgba(13,148,136,.15); border: 1px solid rgba(13,148,136,.3); border-radius: 12px; padding: 12px 18px; min-width: 68px; }
+.cd-num { font-family: 'Inter',sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--bium-lt); line-height: 1; }
+.cd-lbl { font-size: .68rem; color: rgba(255,255,255,.5); letter-spacing: .1em; }
+.cd-colon { font-size: 1.6rem; font-weight: 800; color: rgba(13,148,136,.5); padding-bottom: 20px; }
+.bium-launch-txt { font-size: .78rem; color: rgba(255,255,255,.4); letter-spacing: .15em; font-weight: 600; }
+.bium-signup { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 24px 28px; text-align: center; }
+.bium-signup > p { font-size: .88rem; color: rgba(255,255,255,.65); margin-bottom: 14px; }
+.signup-form { display: flex; border-radius: 50px; overflow: hidden; border: 1px solid rgba(13,148,136,.4); }
+.signup-form input { flex: 1; background: rgba(255,255,255,.05); border: none; outline: none; padding: 12px 20px; font-size: .88rem; color: #fff; font-family: 'Noto Sans KR',sans-serif; }
+.signup-form input::placeholder { color: rgba(255,255,255,.35); }
+.signup-form button { background: linear-gradient(135deg, var(--bium-dark), var(--bium)); border: none; padding: 12px 20px; cursor: pointer; color: #fff; font-size: 1rem; transition: opacity var(--tr); }
+.signup-form button:hover { opacity: .85; }
+.signup-note { font-size: .8rem; margin-top: 10px; min-height: 18px; }
+.signup-note.ok  { color: var(--bium-lt); }
+.signup-note.err { color: #f87171; }
+
+/* ================================================
+   BRAND STORY
+   ================================================ */
+.brand-story {
+  background: url('https://images.unsplash.com/photo-1515527002096-661e8c21e4f4?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+  position: relative;
+}
+.brand-story::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(250,248,245,.87);
+  z-index: 0;
+}
+.brand-story .container { position: relative; z-index: 1; }
+.story-inner { text-align: center; margin-bottom: 72px; max-width: 700px; margin-left: auto; margin-right: auto; }
+.quote-mark { font-family: 'Playfair Display',serif; font-size: 6rem; line-height: .6; color: var(--gold); opacity: .25; margin-bottom: 12px; }
+.story-inner blockquote { font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-weight: 600; color: var(--navy); line-height: 1.7; margin-bottom: 20px; }
+.story-inner cite { font-size: .88rem; color: var(--gray); font-style: normal; font-weight: 500; }
+.story-vals { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+.val-card { text-align: center; padding: 40px 28px; background: var(--off-white); border-radius: var(--radius); border: 1px solid #e5eaf0; transition: all var(--tr); }
+.val-card:hover { transform: translateY(-6px); background: var(--navy); border-color: var(--navy); }
+.val-card:hover h4, .val-card:hover p { color: #fff !important; }
+.val-card:hover i { color: var(--gold-lt) !important; }
+.val-card i { font-size: 2rem; color: var(--accent); margin-bottom: 16px; display: block; transition: color var(--tr); }
+.val-card h4 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 10px; transition: color var(--tr); }
+.val-card p { font-size: .88rem; color: #5a6e82; line-height: 1.7; transition: color var(--tr); }
+
+/* ================================================
+   CTA
+   ================================================ */
+.cta-sec {
+  background: url('https://images.unsplash.com/photo-1494232410401-ad00d5433cfa?auto=format&fit=crop&w=1920&q=80') center center / cover no-repeat;
+  position: relative;
+}
+.cta-sec::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(6,12,26,.83);
+  z-index: 0;
+}
+.cta-sec .container { position: relative; z-index: 1; }
+.cta-inner { text-align: center; }
+.cta-title { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; color: #fff; margin-bottom: 16px; }
+.cta-desc { font-size: 1.05rem; color: rgba(255,255,255,.65); margin-bottom: 52px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.cta-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.cta-btn { display: flex; align-items: center; gap: 14px; padding: 18px 28px; border-radius: 16px; min-width: 210px; text-align: left; transition: all var(--tr); font-size: 1rem; }
+.cta-btn i { font-size: 1.5rem; flex-shrink: 0; }
+.cta-btn span { display: flex; flex-direction: column; font-weight: 700; color: #fff; }
+.cta-btn span small { font-size: .72rem; font-weight: 500; opacity: .75; margin-bottom: 2px; letter-spacing: .05em; }
+.cb-band  { background: rgba(26,75,140,.25); border: 1px solid rgba(26,75,140,.5); color: #fff; }
+.cb-band:hover  { background: rgba(26,75,140,.45); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(26,75,140,.3); }
+.cb-insta { background: linear-gradient(135deg,rgba(201,168,76,.15),rgba(201,168,76,.08)); border: 1px solid rgba(201,168,76,.4); color: #fff; }
+.cb-insta i { color: var(--gold-lt); }
+.cb-insta:hover { background: rgba(201,168,76,.22); transform: translateY(-4px); }
+.cb-mall  { background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); color: #fff; }
+.cb-mall:hover  { background: rgba(255,255,255,.12); transform: translateY(-4px); }
+.cb-bium  { background: linear-gradient(135deg,rgba(13,148,136,.25),rgba(13,148,136,.15)); border: 1px solid rgba(13,148,136,.45); color: #fff; }
+.cb-bium i { color: var(--bium-lt); }
+.cb-bium:hover  { background: rgba(13,148,136,.38); transform: translateY(-4px); box-shadow: 0 10px 30px rgba(13,148,136,.3); }
+
+/* ================================================
+   FOOTER
+   ================================================ */
+.footer { background: #060e1a; padding: 72px 24px 0; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.footer-brand p { font-size: .88rem; line-height: 1.7; margin-top: 16px; color: rgba(255,255,255,.45); }
+.footer-socials { display: flex; gap: 12px; margin-top: 24px; }
+.footer-socials a { width: 40px; height: 40px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,.6); font-size: .95rem; transition: all var(--tr); }
+.footer-socials a:hover { background: var(--gold); border-color: var(--gold); color: var(--navy); transform: translateY(-3px); }
+.footer-col h5 { font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.9); margin-bottom: 20px; }
+.footer-col a { display: block; font-size: .88rem; color: rgba(255,255,255,.45); margin-bottom: 10px; transition: color var(--tr); }
+.footer-col a:hover { color: var(--gold); }
+.footer-biz {
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 24px 0 0;
+  margin-bottom: 0;
+}
+.footer-biz p {
+  font-size: .75rem;
+  color: rgba(255,255,255,.28);
+  line-height: 2;
+  word-break: keep-all;
+}
+.footer-biz p span {
+  display: inline-block;
+  padding: 0 10px;
+  border-right: 1px solid rgba(255,255,255,.12);
+  margin-bottom: 2px;
+}
+.footer-biz p span:last-child { border-right: none; }
+.footer-biz a { color: rgba(255,255,255,.38); text-decoration: underline; transition: color var(--tr); }
+.footer-biz a:hover { color: var(--gold); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 18px 0; font-size: .78rem; color: rgba(255,255,255,.22); flex-wrap: wrap; gap: 8px; border-top: 1px solid rgba(255,255,255,.05); margin-top: 16px; }
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 1024px) {
+  .stats-grid { grid-template-columns: repeat(2,1fr); }
+  .about-grid  { gap: 50px; }
+}
+@media (max-width: 860px) {
+  .nav-links  { display: none; }
+  .hamburger  { display: flex; }
+  .services-grid { grid-template-columns: 1fr; }
+  .bium-inner { grid-template-columns: 1fr; gap: 48px; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-visual { height: 320px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .story-vals  { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 600px) {
+  .section-pad { padding: 70px 0; }
+  .hero-proof  { flex-direction: column; gap: 16px; padding: 24px; }
+  .proof-div   { width: 60px; height: 1px; }
+  .stats-grid  { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .cta-btns   { flex-direction: column; align-items: center; }
+  .cta-btn    { width: 100%; max-width: 340px; }
+  .about-badge-float { top: -10px; right: -10px; font-size: .72rem; padding: 10px 14px; }
+  .bium-cd    { gap: 4px; }
+  .cd-item    { min-width: 56px; padding: 10px 12px; }
+  .cd-num     { font-size: 1.4rem; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ======= NAVBAR ======= -->
+<header class="navbar scrolled" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-hi">LOWHIGH</span><span class="logo-mk">MARKET</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about">브랜드 소개</a>
+      <a href="#stats">신뢰 지표</a>
+      <a href="#services">서비스</a>
+      <a href="#bium">비움마켓</a>
+      <a href="#cta" class="nav-cta">바로가기</a>
+    </nav>
+    <button class="hamburger" id="hamburger" aria-label="메뉴">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-link">브랜드 소개</a>
+    <a href="#stats" class="mobile-link">신뢰 지표</a>
+    <a href="#services" class="mobile-link">서비스</a>
+    <a href="#bium" class="mobile-link">비움마켓</a>
+    <a href="#cta" class="mobile-link hi">바로가기</a>
+  </div>
+</header>
+
+<!-- ======= HERO ======= -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="fabric-pattern"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <i class="fas fa-award"></i>
+      <span>대한민국 최대 규모의 재고 원단 네트워크</span>
+    </div>
+    <h1 class="hero-title">
+      원단 소싱의 새 기준,<br />
+      <em>로하이마켓</em>
+    </h1>
+    <p class="hero-sub">
+      15년의 현장 경험과 데이터로 증명하는 No.1 원단 소싱 파트너.<br />
+      프리미엄 린넨·코튼부터 희귀 재고 원단까지, 한 곳에서 만나보세요.
+    </p>
+    <div class="hero-btns">
+      <a href="https://band.us/@lohighmarket" target="_blank" class="btn btn-primary">
+        <i class="fas fa-users"></i> 밴드 커뮤니티 참여
+      </a>
+      <a href="#bium" class="btn btn-outline">
+        <i class="fas fa-rocket"></i> 비움마켓 보기
+      </a>
+    </div>
+    <div class="hero-proof">
+      <div class="proof-item">
+        <strong class="counter" data-target="16000">16,000</strong><span>+</span>
+        <small>밴드 멤버</small>
+      </div>
+      <div class="proof-div"></div>
+      <div class="proof-item">
+        <strong class="counter" data-target="6000">6,000</strong><span>+</span>
+        <small>인스타 팔로워</small>
+      </div>
+      <div class="proof-div"></div>
+      <div class="proof-item">
+        <strong>15</strong><span>년+</span>
+        <small>업계 경험</small>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>스크롤</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ======= ABOUT ======= -->
+<section class="about section-pad" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual anim from-left visible">
+        <div class="fabric-card fc1"></div>
+        <div class="fabric-card fc2"></div>
+        <div class="fabric-card fc3"></div>
+        <div class="about-badge-float">
+          <i class="fas fa-certificate"></i>
+          <span>국내 최다<br/>재고 원단 보유</span>
+        </div>
+      </div>
+      <div class="about-text anim from-right visible">
+        <p class="sec-label">ABOUT LOHIGH MARKET</p>
+        <h2 class="sec-title">전통과 신뢰 위에<br />세워진 원단 플랫폼</h2>
+        <p class="sec-desc">로하이마켓은 단순한 원단 판매 채널이 아닙니다. 15년간 현장에서 쌓아온 데이터와 전문가 네트워크를 기반으로, 국내 최대 규모의 재고 원단 유통 생태계를 구축했습니다.</p>
+        <p class="sec-desc" style="margin-top:10px;">린넨, 코튼, 데드스톡 원단을 포함한 수천 종의 재고를 실시간으로 확인하고, 빠르고 정확한 소싱이 가능합니다.</p>
+        <ul class="about-features">
+          <li><i class="fas fa-check-circle"></i> 국내 최다 재고 원단 보유 및 유통</li>
+          <li><i class="fas fa-check-circle"></i> 15년 업계 경험 기반의 큐레이션</li>
+          <li><i class="fas fa-check-circle"></i> 16,000+ 전문가 커뮤니티 네트워크</li>
+          <li><i class="fas fa-check-circle"></i> 빠른 소싱 · 투명한 거래 시스템</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= STATS ======= -->
+<section class="stats section-pad" id="stats">
+  <div class="stats-accent"></div>
+  <div class="container">
+    <div class="section-header anim visible">
+      <p class="sec-label light">TRUST &amp; SCALE</p>
+      <h2 class="sec-title white">숫자로 증명하는 신뢰</h2>
+      <p class="sec-desc white">로하이마켓의 성장은 함께하는 커뮤니티가 만들어온 결과입니다.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card anim visible" style="transition-delay:.0s">
+        <div class="stat-icon si-band"><i class="fas fa-users"></i></div>
+        <div class="stat-num">
+          <span class="num counter" data-target="16000">16,000</span><span class="stat-plus">+</span>
+        </div>
+        <p class="stat-lbl">네이버 밴드 멤버</p>
+        <p class="stat-dsc">국내 최다 활성 원단 커뮤니티<br/>실시간 원단 정보 공유</p>
+        <a href="https://band.us/@lohighmarket" target="_blank" class="stat-lnk">밴드 바로가기 <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="stat-card featured anim visible" style="transition-delay:.1s">
+        <div class="stat-icon si-insta"><i class="fab fa-instagram"></i></div>
+        <div class="stat-num">
+          <span class="num counter" data-target="6000">6,000</span><span class="stat-plus">+</span>
+        </div>
+        <p class="stat-lbl">인스타그램 팔로워</p>
+        <p class="stat-dsc">트렌디한 원단 큐레이션<br/>최신 컬렉션 비주얼 공유</p>
+        <a href="https://www.instagram.com/lohigh_market" target="_blank" class="stat-lnk">인스타 팔로우 <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="stat-card anim visible" style="transition-delay:.2s">
+        <div class="stat-icon si-stock"><i class="fas fa-boxes-stacked"></i></div>
+        <div class="stat-num">
+          <span class="num">국내</span><span class="stat-hi">최다</span>
+        </div>
+        <p class="stat-lbl">재고 원단 보유</p>
+        <p class="stat-dsc">다양한 소재·컬러·수량의<br/>원단을 상시 보유·유통</p>
+        <a href="#services" class="stat-lnk">서비스 보기 <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="stat-card anim visible" style="transition-delay:.3s">
+        <div class="stat-icon si-exp"><i class="fas fa-medal"></i></div>
+        <div class="stat-num">
+          <span class="num counter" data-target="15">15</span><span class="stat-plus">년+</span>
+        </div>
+        <p class="stat-lbl">업계 현장 경험</p>
+        <p class="stat-dsc">B2B 원단 유통 전문가가<br/>직접 운영하는 플랫폼</p>
+        <a href="#about" class="stat-lnk">소개 보기 <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= SERVICES ======= -->
+<section class="services section-pad" id="services">
+  <div class="container">
+    <div class="section-header anim visible">
+      <p class="sec-label">LOHIGH ECOSYSTEM</p>
+      <h2 class="sec-title">로하이마켓 생태계</h2>
+      <p class="sec-desc">로하이마켓의 두 축 — 프리미엄 상시 판매와 재고 전문 거래 플랫폼</p>
+    </div>
+    <div class="services-grid">
+      <div class="svc-card anim from-left visible" style="transition-delay:.1s">
+        <div class="svc-img svc-lohigh">
+  <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=400&q=80" alt="lowhighmarket.com 모바일 화면" class="mockup-img left" />
+  <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+    <div class="svc-tag">상시 운영</div>
+    <span class="svc-domain">lowhighmarket.com</span>
+  </div>
+</div>
+        <div class="svc-body">
+          <div class="svc-icon"><i class="fas fa-store"></i></div>
+          <h3>로하이마켓 몰</h3>
+          <p>프리미엄 원단을 언제든지 만나보세요. 린넨, 코튼, 화섬 등 다양한 소재를 365일 상시 판매합니다. 전문가가 직접 큐레이션한 원단만을 엄선해 제공합니다.</p>
+          <ul class="svc-feats">
+            <li><i class="fas fa-circle-check"></i> 프리미엄 원단 상시 판매</li>
+            <li><i class="fas fa-circle-check"></i> 소재별·컬러별 필터 검색</li>
+            <li><i class="fas fa-circle-check"></i> 빠른 샘플 배송 시스템</li>
+          </ul>
+          <a href="#" class="svc-btn">로하이마켓 몰 방문 <i class="fas fa-external-link-alt"></i></a>
+        </div>
+      </div>
+      <div class="svc-card anim from-right visible" style="transition-delay:.2s">
+        <div class="svc-img svc-bium">
+  <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=400&q=80" alt="biummarket.com 모바일 화면" class="mockup-img left" />
+  <div style="position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+    <div class="svc-tag new">NEW LAUNCH</div>
+    <span class="svc-domain">biummarket.com</span>
+  </div>
+</div>
+        <div class="svc-body">
+          <div class="svc-icon bm"><i class="fas fa-recycle"></i></div>
+          <h3>비움마켓 <span class="new-badge">NEW</span></h3>
+          <p>비움으로 채우는 가치 — 재고 원단 전문 거래 플랫폼. 단순한 쇼핑몰이 아닌, IT 기술력을 접목한 스마트 재고 원단 생태계입니다.</p>
+          <ul class="svc-feats">
+            <li><i class="fas fa-circle-check"></i> 데드스톡 전문 거래 플랫폼</li>
+            <li><i class="fas fa-circle-check"></i> AI 기반 재고 매칭 시스템</li>
+            <li><i class="fas fa-circle-check"></i> 지속 가능한 원단 순환 경제</li>
+          </ul>
+          <a href="#bium" class="svc-btn bm">비움마켓 런칭 확인 <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= BIUM LAUNCH ======= -->
+<section class="bium-launch" id="bium">
+  <div class="bium-bg">
+    <div class="bium-particles" id="biumParticles"></div>
+    <div class="bium-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="bium-inner">
+      <div class="bium-left anim from-left visible">
+        <div class="bium-lbl"><span class="bium-dot"></span> LAUNCHING SOON</div>
+        <h2 class="bium-title">비움마켓<br /><span class="bium-accent">비움으로 채우는 가치</span></h2>
+        <p class="bium-desc">로하이마켓의 15년 원단 전문성에 IT 혁신을 더했습니다. 재고 원단의 새로운 순환 생태계, 비움마켓이 곧 문을 엽니다.</p>
+        <div class="bium-feats">
+          <div class="bium-feat">
+            <div class="bium-feat-ic"><i class="fas fa-bolt"></i></div>
+            <div><strong>스마트 매칭</strong><span>AI가 연결하는 최적의 재고 원단</span></div>
+          </div>
+          <div class="bium-feat">
+            <div class="bium-feat-ic"><i class="fas fa-leaf"></i></div>
+            <div><strong>서스테이너블</strong><span>재고 원단의 지속 가능한 재순환</span></div>
+          </div>
+          <div class="bium-feat">
+            <div class="bium-feat-ic"><i class="fas fa-network-wired"></i></div>
+            <div><strong>플랫폼 생태계</strong><span>판매자와 구매자를 잇는 B2B 허브</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="bium-right anim from-right visible" style="transition-delay:.2s">
+        <div class="bium-card-vis">
+          <div class="bium-logo-wrap">
+            <div class="bium-icon-big"><i class="fas fa-recycle"></i></div>
+            <div class="bium-brand">
+              <span class="bium-name">BIUM</span>
+              <span class="bium-name-ko">비움마켓</span>
+            </div>
+          </div>
+          <p class="bium-tagline">"비움으로 채우는 가치"</p>
+          <div class="bium-cd">
+            <div class="cd-item"><span class="cd-num" id="cd-days">00</span><span class="cd-lbl">일</span></div>
+            <div class="cd-colon">:</div>
+            <div class="cd-item"><span class="cd-num" id="cd-hours">00</span><span class="cd-lbl">시간</span></div>
+            <div class="cd-colon">:</div>
+            <div class="cd-item"><span class="cd-num" id="cd-mins">00</span><span class="cd-lbl">분</span></div>
+            <div class="cd-colon">:</div>
+            <div class="cd-item"><span class="cd-num" id="cd-secs">00</span><span class="cd-lbl">초</span></div>
+          </div>
+          <p class="bium-launch-txt">COMING SOON · 2025</p>
+        </div>
+        <div class="bium-signup">
+          <p>런칭 소식을 가장 먼저 받아보세요</p>
+          <form class="signup-form" id="signupForm">
+            <input type="email" placeholder="이메일 주소를 입력하세요" id="emailInput" />
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+          <p class="signup-note" id="signupMsg"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= BRAND STORY ======= -->
+<section class="brand-story section-pad">
+  <div class="container">
+    <div class="story-inner anim visible">
+      <div class="quote-mark">"</div>
+      <blockquote>원단 업계의 정보 불균형을 해소하고,<br />누구나 공정하게 소싱할 수 있는 세상을 만들겠습니다.</blockquote>
+      <cite>— 로하이마켓 대표</cite>
+    </div>
+    <div class="story-vals">
+      <div class="val-card anim visible" style="transition-delay:.0s"><i class="fas fa-handshake"></i><h4>신뢰</h4><p>15년의 현장 경험으로 검증된 원단 전문가와의 직거래</p></div>
+      <div class="val-card anim visible" style="transition-delay:.1s"><i class="fas fa-lightbulb"></i><h4>혁신</h4><p>IT 기술로 원단 업계의 오래된 관행을 바꿉니다</p></div>
+      <div class="val-card anim visible" style="transition-delay:.2s"><i class="fas fa-seedling"></i><h4>지속가능성</h4><p>재고 원단의 재순환으로 환경과 경제를 함께 살립니다</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CTA ======= -->
+<section class="cta-sec section-pad" id="cta">
+  <div class="container">
+    <div class="cta-inner anim visible">
+      <p class="sec-label light">CONNECT WITH US</p>
+      <h2 class="cta-title">지금 바로 시작하세요</h2>
+      <p class="cta-desc">16,000명의 전문가 커뮤니티에 합류하고, 비움마켓의 새로운 원단 생태계를 경험해보세요.</p>
+      <div class="cta-btns">
+        <a href="https://band.us/@lohighmarket" target="_blank" class="cta-btn cb-band">
+          <i class="fas fa-users"></i>
+          <span><small>국내 최대 원단 커뮤니티</small>밴드 바로가기</span>
+        </a>
+        <a href="https://www.instagram.com/lohigh_market" target="_blank" class="cta-btn cb-insta">
+          <i class="fab fa-instagram"></i>
+          <span><small>트렌디한 원단 큐레이션</small>인스타 팔로우</span>
+        </a>
+        <a href="#" class="cta-btn cb-mall">
+          <i class="fas fa-store"></i>
+          <span><small>프리미엄 원단 쇼핑</small>로하이마켓 몰</span>
+        </a>
+        <a href="#bium" class="cta-btn cb-bium">
+          <i class="fas fa-rocket"></i>
+          <span><small>혁신적 재고 원단 플랫폼</small>비움마켓 런칭 확인</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-hi">LOWHIGH</span><span class="logo-mk">MARKET</span>
+        </a>
+        <p>대한민국 No.1 원단 소싱 파트너<br />15년의 신뢰, 미래의 혁신</p>
+        <div class="footer-socials">
+          <a href="https://band.us/@lohighmarket" target="_blank"><i class="fas fa-users"></i></a>
+          <a href="https://www.instagram.com/lohigh_market" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>로하이마켓</h5>
+        <a href="#about">브랜드 소개</a>
+        <a href="#stats">신뢰 지표</a>
+        <a href="#services">서비스</a>
+      </div>
+      <div class="footer-col">
+        <h5>비움마켓</h5>
+        <a href="#bium">런칭 소식</a>
+        <a href="#bium">사전 등록</a>
+        <a href="#cta">파트너 문의</a>
+      </div>
+      <div class="footer-col">
+        <h5>채널</h5>
+        <a href="https://band.us/@lohighmarket" target="_blank">네이버 밴드</a>
+        <a href="https://www.instagram.com/lohigh_market" target="_blank">인스타그램</a>
+        <a href="#">로하이마켓 몰</a>
+      </div>
+    </div>
+    <!-- 사업자 정보 -->
+    <div class="footer-biz">
+      <p>
+        <span>법인명(상호) : 로하이마켓</span>
+        <span>주소 : 11465 경기도 양주시 화합로1710번길 12 (옥정동) 양주옥정듀클래스.I 3층 312호</span>
+        <span>대표자 : 이소영</span>
+        <span>전화 : 031-824-3303</span>
+      </p>
+      <p>
+        <span>개인정보관리책임자 : 이소영 (demadefc@naver.com)</span>
+        <span>사업자등록번호 : 447-65-00488</span>
+        <span>통신판매업신고 제2023-경기양주-0123호</span>
+        <a href="#" target="_blank">[사업자정보확인]</a>
+      </p>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Lowhigh Market. All rights reserved.</p>
+      <p>비움마켓(Bium Market) · 로하이마켓(Lowhigh Market)</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+/* ── Navbar ── */
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
+}, { passive: true });
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-link').forEach(l => {
+  l.addEventListener('click', () => {
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+/* ── Smooth scroll with offset ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href');
+    if (id === '#') return;
+    const el = document.querySelector(id);
+    if (!el) return;
+    e.preventDefault();
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 78, behavior: 'smooth' });
+  });
+});
+
+/* ── Scroll animations ── */
+const animEls = document.querySelectorAll('.anim');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.15 });
+animEls.forEach(el => io.observe(el));
+
+/* ── Counter ── */
+const counters = document.querySelectorAll('.counter');
+const cio = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target, 10);
+    const dur = 2000;
+    const start = performance.now();
+    const easeOut = t => 1 - Math.pow(1 - t, 3);
+    const tick = now => {
+      const p = Math.min((now - start) / dur, 1);
+      const v = Math.floor(easeOut(p) * target);
+      el.textContent = v >= 1000 ? v.toLocaleString('ko-KR') : v;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = target >= 1000 ? target.toLocaleString('ko-KR') : target;
+    };
+    requestAnimationFrame(tick);
+    cio.unobserve(el);
+  });
+}, { threshold: 0.4 });
+counters.forEach(c => cio.observe(c));
+
+/* ── Countdown ── */
+const launchDate = new Date();
+launchDate.setDate(launchDate.getDate() + 90);
+const pad = n => String(n).padStart(2, '0');
+const tick = () => {
+  const diff = launchDate - new Date();
+  if (diff <= 0) return;
+  document.getElementById('cd-days').textContent  = pad(Math.floor(diff / 86400000));
+  document.getElementById('cd-hours').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+  document.getElementById('cd-mins').textContent  = pad(Math.floor((diff % 3600000)  / 60000));
+  document.getElementById('cd-secs').textContent  = pad(Math.floor((diff % 60000)    / 1000));
+};
+tick(); setInterval(tick, 1000);
+
+/* ── Particles ── */
+(function() {
+  const c = document.getElementById('biumParticles');
+  if (!c) return;
+  for (let i = 0; i < 30; i++) {
+    const p = document.createElement('div');
+    const s = Math.random() * 4 + 2;
+    const dur = (Math.random() * 8 + 6).toFixed(1);
+    const delay = (Math.random() * 5).toFixed(1);
+    const tx = (Math.random() * 40 - 20).toFixed(0);
+    Object.assign(p.style, {
+      position: 'absolute',
+      width: s + 'px', height: s + 'px',
+      left: (Math.random() * 100) + '%',
+      top:  (Math.random() * 100) + '%',
+      borderRadius: '50%',
+      background: Math.random() > 0.5 ? `rgba(13,148,136,${(Math.random()*.25+.05).toFixed(2)})` : `rgba(201,168,76,${(Math.random()*.15+.04).toFixed(2)})`,
+      animation: `ptFloat ${dur}s ${delay}s ease-in-out infinite`
+    });
+    c.appendChild(p);
+  }
+  const s = document.createElement('style');
+  s.textContent = `@keyframes ptFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-22px) scale(1.2)} }`;
+  document.head.appendChild(s);
+})();
+
+/* ── Email signup ── */
+document.getElementById('signupForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const email = document.getElementById('emailInput').value.trim();
+  const msg = document.getElementById('signupMsg');
+  const btn = this.querySelector('button');
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    msg.textContent = '올바른 이메일 주소를 입력해 주세요.';
+    msg.className = 'signup-note err';
+    return;
+  }
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+  await new Promise(r => setTimeout(r, 900));
+  msg.textContent = '✓ 등록 완료! 런칭 소식을 가장 먼저 알려드릴게요 🎉';
+  msg.className = 'signup-note ok';
+  document.getElementById('emailInput').value = '';
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-paper-plane"></i>';
+  setTimeout(() => { msg.textContent = ''; msg.className = 'signup-note'; }, 5000);
+});
+
+/* ── Hero parallax ── */
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if (y < window.innerHeight) {
+    document.querySelector('.hero-overlay').style.transform = `translateY(${y * .15}px)`;
+    document.querySelector('.fabric-pattern').style.transform = `translateY(${y * .06}px)`;
+  }
+}, { passive: true });
+</script>
+</body>
+</html>
