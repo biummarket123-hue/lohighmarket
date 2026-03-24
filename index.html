@@ -424,7 +424,8 @@ ul { list-style: none; }
     linear-gradient(150deg, rgba(2,26,24,.85) 0%, rgba(10,46,42,.78) 40%, rgba(6,36,32,.88) 100%);
 }
 .bium-particles { position: absolute; inset: 0; pointer-events: none; }
-.bium-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; overflow: hidden; word-break: keep-all; }
+.bium-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; position: relative; z-index: 1; word-break: keep-all; overflow: visible; }
+.bium-inner > * { min-width: 0; }
 .bium-lbl { display: inline-flex; align-items: center; gap: 8px; font-size: .83rem; font-weight: 700; letter-spacing: .22em; color: var(--bium-lt); text-transform: uppercase; margin-bottom: 24px; }
 .bium-dot { width: 8px; height: 8px; background: var(--bium-lt); border-radius: 50%; box-shadow: 0 0 8px var(--bium-lt); animation: dotPulse 1.4s ease-in-out infinite; }
 @keyframes dotPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
@@ -436,7 +437,7 @@ ul { list-style: none; }
 .bium-feat-ic { width: 50px; height: 50px; min-width: 50px; background: rgba(13,148,136,.2); border: 1px solid rgba(13,148,136,.35); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--bium-lt); font-size: 1.05rem; }
 .bium-feat div strong { display: block; font-size: 1.09rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
 .bium-feat div span { font-size: .97rem; color: rgba(255,255,255,.55); }
-.bium-card-vis { background: rgba(255,255,255,.05); border: 1px solid rgba(13,148,136,.3); border-radius: 24px; padding: 44px 36px 36px; text-align: center; backdrop-filter: blur(8px); margin-bottom: 20px; }
+.bium-card-vis { background: rgba(255,255,255,.05); border: 1px solid rgba(13,148,136,.3); border-radius: 24px; padding: 44px 36px 36px; text-align: center; backdrop-filter: blur(8px); margin-bottom: 20px; box-sizing: border-box; max-width: 100%; width: 100%; }
 .bium-logo-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 20px; }
 .bium-icon-big { width: 92px; height: 92px; background: linear-gradient(135deg, var(--bium-dark), var(--bium-lt)); border-radius: 22px; display: flex; align-items: center; justify-content: center; font-size: 2.2rem; color: #fff; box-shadow: 0 10px 40px rgba(13,148,136,.5); }
 .bium-brand { display: flex; flex-direction: column; align-items: center; gap: 2px; }
@@ -449,7 +450,7 @@ ul { list-style: none; }
 .cd-lbl { font-size: .78rem; color: rgba(255,255,255,.5); letter-spacing: .1em; }
 .cd-colon { font-size: 1.6rem; font-weight: 800; color: rgba(13,148,136,.5); padding-bottom: 20px; }
 .bium-launch-txt { font-size: .9rem; color: rgba(255,255,255,.4); letter-spacing: .15em; font-weight: 600; }
-.bium-signup { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 24px 28px; text-align: center; }
+.bium-signup { background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); border-radius: 16px; padding: 24px 28px; text-align: center; box-sizing: border-box; max-width: 100%; width: 100%; }
 .bium-signup > p { font-size: 1.01rem; color: rgba(255,255,255,.65); margin-bottom: 14px; }
 .signup-form { display: flex; border-radius: 50px; overflow: hidden; border: 1px solid rgba(13,148,136,.4); }
 .signup-form input { flex: 1; background: rgba(255,255,255,.05); border: none; outline: none; padding: 14px 22px; font-size: 1.01rem; color: #fff; font-family: 'Noto Sans KR',sans-serif; }
@@ -565,11 +566,11 @@ ul { list-style: none; }
   .nav-links  { display: none; }
   .hamburger  { display: flex; }
   .services-grid { grid-template-columns: 1fr; }
-  .bium-inner { grid-template-columns: 1fr; gap: 48px; }
+  .bium-inner { grid-template-columns: 1fr; gap: 48px; padding: 0 8px; }
   .bium-launch { padding: 80px 16px; }
   .bium-title { font-size: clamp(1.8rem, 5vw, 2.6rem); }
   .bium-desc { font-size: 1.05rem; margin-bottom: 28px; }
-  .bium-card-vis { padding: 32px 20px 28px; border-radius: 18px; }
+  .bium-card-vis { padding: 32px 20px 28px; border-radius: 18px; max-width: 100%; }
   .bium-icon-big { width: 72px; height: 72px; font-size: 1.8rem; }
   .bium-name { font-size: 1.7rem; }
   .bium-tagline { font-size: 1.02rem; margin-bottom: 24px; }
@@ -577,10 +578,10 @@ ul { list-style: none; }
   .cd-item { min-width: 60px; padding: 10px 14px; }
   .cd-num { font-size: 1.7rem; }
   .cd-colon { font-size: 1.3rem; padding-bottom: 16px; }
-  .bium-signup { padding: 20px 16px; }
-  .signup-form { flex-direction: column; border-radius: 14px; }
-  .signup-form input { border-radius: 0; padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(13,148,136,.2); }
-  .signup-form button { border-radius: 0; padding: 14px 18px; }
+  .bium-signup { padding: 20px 16px; max-width: 100%; }
+  .signup-form { flex-direction: column; border-radius: 14px; overflow: hidden; }
+  .signup-form input { border-radius: 0; padding: 14px 18px; text-align: center; border-bottom: 1px solid rgba(13,148,136,.2); width: 100%; }
+  .signup-form button { border-radius: 0; padding: 14px 18px; width: 100%; }
   .bium-feat-ic { width: 44px; height: 44px; min-width: 44px; font-size: .95rem; }
   .bium-feat div strong { font-size: 1rem; }
   .bium-feat div span { font-size: .9rem; }
@@ -600,10 +601,10 @@ ul { list-style: none; }
   .cta-btn    { width: 100%; max-width: 340px; }
   .about-badge-float { top: -10px; right: -10px; font-size: .83rem; padding: 10px 14px; }
   .bium-launch { padding: 60px 12px; }
-  .bium-inner { gap: 36px; }
+  .bium-inner { gap: 36px; padding: 0 4px; }
   .bium-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
   .bium-desc { font-size: .97rem; line-height: 1.7; }
-  .bium-card-vis { padding: 28px 14px 24px; }
+  .bium-card-vis { padding: 24px 12px 20px; border-radius: 16px; }
   .bium-icon-big { width: 64px; height: 64px; font-size: 1.6rem; border-radius: 18px; }
   .bium-name { font-size: 1.5rem; }
   .bium-name-ko { font-size: .85rem; }
@@ -614,7 +615,7 @@ ul { list-style: none; }
   .cd-colon { font-size: 1.1rem; padding-bottom: 14px; }
   .cd-lbl { font-size: .68rem; }
   .bium-launch-txt { font-size: .78rem; letter-spacing: .1em; }
-  .bium-signup { padding: 18px 12px; }
+  .bium-signup { padding: 16px 10px; border-radius: 12px; }
   .bium-signup > p { font-size: .92rem; }
   .signup-form input { padding: 12px 16px; font-size: .95rem; }
   .signup-form button { padding: 12px 16px; font-size: 1rem; }
